@@ -17,7 +17,7 @@ public class Practica2Controller {
     @GetMapping("/practica2_info")
         public String info(Model model){
         Taco taco1 = new Taco("TacoPastor", "Cerdo", "Harina", "Roja", 12, 1, 001);
-        model.addAttribute("Empleado", taco1);
+        model.addAttribute("Taco", taco1);
         return "practica2_info";
     }
 

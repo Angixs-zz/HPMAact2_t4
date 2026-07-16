@@ -1,20 +1,52 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title th:text="${Titulo}">Pagina Spring Boot</title>
 </head>
+
 <body>
-    <h1>Información de empleado</h1>
+
+    <h1>Información del taco</h1>
+
     <ul>
-        <li><strong>Nombre:</strong> <span th:text="${Empleado.nombre}"></span></li>
-        <li><strong>Carne:</strong> <span th:text="${Empleado.tipoCarne}"></span></li>
-        <li><strong>Tortilla:</strong> <span th:text="${Empleado.tipoTortilla}"></span></li>
-        <li><strong>Salsa:</strong> <span th:text="${Empleado.tipoSalsa}"></span></li>
-        <li><strong>Precio:</strong> <span th:text="${Empleado.precio}"></span></li>
-        <li><strong>Cantidad:</strong> <span th:text="${Empleado.cantidad}"></span></li>
-        <li><strong>ID:</strong> <span th:text="${Empleado.id}"></span></li>
+        <li>
+            <strong>Nombre:</strong>
+            <span th:text="${Taco.nombre}"></span>
+        </li>
+
+        <li>
+            <strong>Carne:</strong>
+            <span th:text="${Taco.tipoCarne}"></span>
+        </li>
+
+        <li>
+            <strong>Tortilla:</strong>
+            <span th:text="${Taco.tipoTortilla != null ? Taco.tipoTortilla : 'Sin tortilla'}"></span>
+        </li>
+        
+        <li>
+            <strong>Salsa:</strong>
+            <span th:text="${Taco.tipoSalsa}"></span>
+        </li>
+
+        <li>
+            <strong>Precio:</strong>
+            <span th:text="${Taco.precio}"></span>
+        </li>
+
+        <li>
+            <strong>Cantidad:</strong>
+            <span th:text="${Taco.cantidad}"></span>
+        </li>
+
+        <li>
+            <strong>ID:</strong>
+            <span th:text="${Taco.id}"></span>
+        </li>
     </ul>
+
 </body>
 </html>
