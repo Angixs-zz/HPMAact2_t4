@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Registrar taco</title>
+</head>
+
+<body>
+
+    <h1>Registrar taco</h1>
+
+    <form th:action="@{/tacos/guardar}"
+          th:object="${taco}"
+          method="post">
+
+        <div>
+            <label for="id">ID:</label>
+
+            <input type="number"
+                   id="id"
+                   th:field="*{id}"
+                   required>
+        </div>
+
+        <div>
+            <label for="nombre">Nombre:</label>
+
+            <input type="text"
+                   id="nombre"
+                   th:field="*{nombre}"
+                   required>
+        </div>
+
+        <div>
+            <label for="tipoCarne">Carne:</label>
+
+            <input type="text"
+                   id="tipoCarne"
+                   th:field="*{tipoCarne}"
+                   required>
+        </div>
+
+        <div>
+            <label for="tipoTortilla">Tortilla:</label>
+
+            <input type="text"
+                   id="tipoTortilla"
+                   th:field="*{tipoTortilla}">
+        </div>
+
+        <div>
+            <label for="tipoSalsa">Salsa:</label>
+
+            <input type="text"
+                   id="tipoSalsa"
+                   th:field="*{tipoSalsa}">
+        </div>
+
+        <div>
+            <label for="precio">Precio:</label>
+
+            <input type="number"
+                   id="precio"
+                   th:field="*{precio}"
+                   min="0"
+                   required>
+        </div>
+
+        <div>
+            <label for="cantidad">Cantidad:</label>
+
+            <input type="number"
+                   id="cantidad"
+                   th:field="*{cantidad}"
+                   min="1"
+                   required>
+        </div>
+
+        <button type="submit">
+            Guardar taco
+        </button>
+
+    </form>
+
+    <section th:if="${tacoGuardado != null}">
+
+        <h2>Taco recibido correctamente</h2>
+
+        <ul>
+            <li>
+                <strong>ID:</strong>
+                <span th:text="${tacoGuardado.id}"></span>
+            </li>
+
+            <li>
+                <strong>Nombre:</strong>
+                <span th:text="${tacoGuardado.nombre != null
+                        and !tacoGuardado.nombre.isBlank()
+                        ? tacoGuardado.nombre
+                        : 'Sin nombre'}">
+                </span>
+            </li>
+
+            <li>
+                <strong>Carne:</strong>
+                <span th:text="${tacoGuardado.tipoCarne != null
+                        and !tacoGuardado.tipoCarne.isBlank()
+                        ? tacoGuardado.tipoCarne
+                        : 'Sin carne'}">
+                </span>
+            </li>
+
+            <li>
+                <strong>Tortilla:</strong>
+                <span th:text="${tacoGuardado.tipoTortilla != null
+                        and !tacoGuardado.tipoTortilla.isBlank()
+                        ? tacoGuardado.tipoTortilla
+                        : 'Sin tortilla'}">
+                </span>
+            </li>
+
+            <li>
+                <strong>Salsa:</strong>
+                <span th:text="${tacoGuardado.tipoSalsa != null
+                        and !tacoGuardado.tipoSalsa.isBlank()
+                        ? tacoGuardado.tipoSalsa
+                        : 'Sin salsa'}">
+                </span>
+            </li>
+
+            <li>
+                <strong>Precio:</strong>
+                $<span th:text="${tacoGuardado.precio}"></span>
+            </li>
+
+            <li>
+                <strong>Cantidad:</strong>
+                <span th:text="${tacoGuardado.cantidad}"></span>
+            </li>
+        </ul>
+
+    </section>
+
+    <p>
+        <a th:href="@{/practica2_info}">
+            Volver a la lista de tacos
+        </a>
+    </p>
+
+</body>
+</html>
