@@ -26,7 +26,7 @@
             <strong>Tortilla:</strong>
             <span th:text="${Taco.tipoTortilla != null ? Taco.tipoTortilla : 'Sin tortilla'}"></span>
         </li>
-        
+
         <li>
             <strong>Salsa:</strong>
             <span th:text="${Taco.tipoSalsa}"></span>
@@ -47,6 +47,34 @@
             <span th:text="${Taco.id}"></span>
         </li>
     </ul>
+
+<h2>Lista de tacos</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Carne</th>
+            <th>Tortilla</th>
+            <th>Salsa</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>ID</th>
+        </tr>
+    </thead>
+
+    <tbody>
+            <tr th:each="taco : ${ListaTacos}">
+            <td th:text="${taco.nombre}"></td>
+            <td th:text="${taco.tipoCarne}"></td>
+            <td th:text="${taco.tipoTortilla}"></td>
+            <td th:text="${taco.tipoSalsa}"></td>
+            <td th:text="${taco.precio}"></td>
+            <td th:text="${taco.cantidad}"></td>
+            <td th:text="${taco.id}"></td>
+        </tr>
+    </tbody>
+</table>
 
 </body>
 </html>
