@@ -1,8 +1,21 @@
+# Act2. Spring MVC - Vistas con Thymeleaf, DTOs y Manejo de Peticiones
+
+## Datos del alumno
+
+- Alumno: Miguel Angel Hernandez Perez
+- Materia: Programacion Web
+- Docente: Adelina Martinez
+- Actividad: Act2. Spring MVC
+- Repositorio: HPMAact2_t4
+
+---
+
 # Proyecto de Gestión de Tacos - Spring Boot
 
 Este proyecto es una aplicación web en Spring Boot desarrollada para la gestión e información de tacos. Implementa controladores MVC con vistas dinámicas en Thymeleaf, así como controladores REST para la comunicación con clientes externos.
 
 ---
+
 
 ## Requisitos de la Fase 1 Implementados
 
@@ -74,16 +87,3 @@ Demuestra el funcionamiento del `TacoRestController` recibiendo y respondiendo l
 ![REST POST Postman](capturas/05-postman-post-rest.png)
 
 ---
-
-## Cómo Ejecutar el Proyecto Localmente
-
-1. Clona o abre el proyecto en tu entorno de desarrollo.
-2. Configura e instala las dependencias de Maven ejecutando:
-   ```bash
-   ./mvnw clean compile
-   ```
-3. Ejecuta la aplicación de Spring Boot:
-   ```bash
-   ./mvnw spring-boot:run
-   ```
-4. Abre tu navegador y accede a `http://localhost:8080/practica2_info`.
