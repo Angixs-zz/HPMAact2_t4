@@ -6,7 +6,6 @@ body {
     padding: 20px;
 }
 
-/* Contenedor principal centrado */
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -16,7 +15,6 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Títulos y textos */
 h1,
 h2 {
     color: #2c3e50;
@@ -28,7 +26,6 @@ p {
     margin: 10px 0;
 }
 
-/* Enlaces y botones de navegación */
 a {
     color: #3498db;
     text-decoration: none;
@@ -53,7 +50,6 @@ a:hover {
     text-decoration: none;
 }
 
-/* Formularios sencillos */
 form {
     background-color: #ecf0f1;
     padding: 15px;
@@ -71,7 +67,6 @@ form {
     font-weight: bold;
 }
 
-/* Campos de entrada, selects y botones de envío */
 input,
 select,
 button {
@@ -96,7 +91,6 @@ button:hover {
     background-color: #27ae60;
 }
 
-/* Tablas responsivas */
 .table-container {
     overflow-x: auto;
     margin-top: 15px;
@@ -119,10 +113,7 @@ th {
     color: #2c3e50;
 }
 
-/* Para pantallas de computadora (más de 600px) */
 @media (min-width: 600px) {
-
-    /* El formulario de búsqueda/filtro se muestra en una sola línea */
     form:not(.form-vertical) {
         display: flex;
         align-items: center;
