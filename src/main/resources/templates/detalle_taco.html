@@ -7,62 +7,67 @@
           content="width=device-width, initial-scale=1.0">
 
     <title>Detalle del taco</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
+    <div class="container">
 
-    <h1>Detalle del taco</h1>
+        <h1>Detalle del taco</h1>
 
-    <section th:if="${tacoDetalle != null}">
-        <p>
-            <strong>ID:</strong>
-            <span th:text="${tacoDetalle.id}"></span>
+        <section th:if="${tacoDetalle != null}">
+            <ul>
+                <li>
+                    <strong>ID:</strong>
+                    <span th:text="${tacoDetalle.id}"></span>
+                </li>
+
+                <li>
+                    <strong>Nombre:</strong>
+                    <span th:text="${tacoDetalle.nombre}"></span>
+                </li>
+
+                <li>
+                    <strong>Carne:</strong>
+                    <span th:text="${tacoDetalle.tipoCarne}"></span>
+                </li>
+
+                <li>
+                    <strong>Tortilla:</strong>
+                    <span th:text="${tacoDetalle.tipoTortilla}"></span>
+                </li>
+
+                <li>
+                    <strong>Salsa:</strong>
+                    <span th:text="${tacoDetalle.tipoSalsa != null
+                            ? tacoDetalle.tipoSalsa
+                            : 'Sin salsa'}">
+                    </span>
+                </li>
+
+                <li>
+                    <strong>Precio:</strong>
+                    $<span th:text="${tacoDetalle.precio}"></span>
+                </li>
+
+                <li>
+                    <strong>Cantidad:</strong>
+                    <span th:text="${tacoDetalle.cantidad}"></span>
+                </li>
+            </ul>
+        </section>
+
+        <p th:if="${tacoDetalle == null}" class="success-banner" style="border-left-color: var(--primary-color);">
+            <strong style="color: var(--primary-color);">Búsqueda fallida:</strong>
+            No se encontró un taco con el ID <span th:text="${idBuscado}"></span>.
         </p>
 
         <p>
-            <strong>Nombre:</strong>
-            <span th:text="${tacoDetalle.nombre}"></span>
+            <a th:href="@{/practica2_info}" class="btn-back">
+                Volver a la lista
+            </a>
         </p>
 
-        <p>
-            <strong>Carne:</strong>
-            <span th:text="${tacoDetalle.tipoCarne}"></span>
-        </p>
-
-        <p>
-            <strong>Tortilla:</strong>
-            <span th:text="${tacoDetalle.tipoTortilla}"></span>
-        </p>
-
-        <p>
-            <strong>Salsa:</strong>
-            <span th:text="${tacoDetalle.tipoSalsa != null
-                    ? tacoDetalle.tipoSalsa
-                    : 'Sin salsa'}">
-            </span>
-        </p>
-
-        <p>
-            <strong>Precio:</strong>
-            $<span th:text="${tacoDetalle.precio}"></span>
-        </p>
-
-        <p>
-            <strong>Cantidad:</strong>
-            <span th:text="${tacoDetalle.cantidad}"></span>
-        </p>
-    </section>
-
-    <p th:if="${tacoDetalle == null}">
-        No se encontró un taco con el ID
-        <span th:text="${idBuscado}"></span>.
-    </p>
-
-    <p>
-        <a th:href="@{/practica2_info}">
-            Volver a la lista
-        </a>
-    </p>
-
+    </div>
 </body>
 </html>

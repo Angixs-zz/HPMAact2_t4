@@ -3,154 +3,150 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
     <title>Registrar taco</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
+    <div class="container">
 
-    <h1>Registrar taco</h1>
+        <h1>Registrar taco</h1>
 
-    <form th:action="@{/tacos/guardar}"
-          th:object="${taco}"
-          method="post">
+        <form th:action="@{/tacos/guardar}"
+              th:object="${taco}"
+              method="post"
+              class="form-vertical">
 
-        <div>
-            <label for="id">ID:</label>
+            <div class="form-group">
+                <label for="id">ID del Taco:</label>
+                <input type="number"
+                       id="id"
+                       th:field="*{id}"
+                       required>
+            </div>
 
-            <input type="number"
-                   id="id"
-                   th:field="*{id}"
-                   required>
-        </div>
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text"
+                       id="nombre"
+                       th:field="*{nombre}"
+                       required>
+            </div>
 
-        <div>
-            <label for="nombre">Nombre:</label>
+            <div class="form-group">
+                <label for="tipoCarne">Carne:</label>
+                <input type="text"
+                       id="tipoCarne"
+                       th:field="*{tipoCarne}"
+                       required>
+            </div>
 
-            <input type="text"
-                   id="nombre"
-                   th:field="*{nombre}"
-                   required>
-        </div>
+            <div class="form-group">
+                <label for="tipoTortilla">Tortilla:</label>
+                <input type="text"
+                       id="tipoTortilla"
+                       th:field="*{tipoTortilla}">
+            </div>
 
-        <div>
-            <label for="tipoCarne">Carne:</label>
+            <div class="form-group">
+                <label for="tipoSalsa">Salsa:</label>
+                <input type="text"
+                       id="tipoSalsa"
+                       th:field="*{tipoSalsa}">
+            </div>
 
-            <input type="text"
-                   id="tipoCarne"
-                   th:field="*{tipoCarne}"
-                   required>
-        </div>
+            <div class="form-group">
+                <label for="precio">Precio ($):</label>
+                <input type="number"
+                       id="precio"
+                       th:field="*{precio}"
+                       min="0"
+                       required>
+            </div>
 
-        <div>
-            <label for="tipoTortilla">Tortilla:</label>
+            <div class="form-group">
+                <label for="cantidad">Cantidad:</label>
+                <input type="number"
+                       id="cantidad"
+                       th:field="*{cantidad}"
+                       min="1"
+                       required>
+            </div>
 
-            <input type="text"
-                   id="tipoTortilla"
-                   th:field="*{tipoTortilla}">
-        </div>
+            <button type="submit">
+                Guardar taco
+            </button>
 
-        <div>
-            <label for="tipoSalsa">Salsa:</label>
+        </form>
 
-            <input type="text"
-                   id="tipoSalsa"
-                   th:field="*{tipoSalsa}">
-        </div>
+        <section th:if="${tacoGuardado != null}" class="success-banner">
 
-        <div>
-            <label for="precio">Precio:</label>
+            <h2>Taco recibido correctamente</h2>
 
-            <input type="number"
-                   id="precio"
-                   th:field="*{precio}"
-                   min="0"
-                   required>
-        </div>
+            <ul>
+                <li>
+                    <strong>ID:</strong>
+                    <span th:text="${tacoGuardado.id}"></span>
+                </li>
 
-        <div>
-            <label for="cantidad">Cantidad:</label>
+                <li>
+                    <strong>Nombre:</strong>
+                    <span th:text="${tacoGuardado.nombre != null
+                            and !tacoGuardado.nombre.isBlank()
+                            ? tacoGuardado.nombre
+                            : 'Sin nombre'}">
+                    </span>
+                </li>
 
-            <input type="number"
-                   id="cantidad"
-                   th:field="*{cantidad}"
-                   min="1"
-                   required>
-        </div>
+                <li>
+                    <strong>Carne:</strong>
+                    <span th:text="${tacoGuardado.tipoCarne != null
+                            and !tacoGuardado.tipoCarne.isBlank()
+                            ? tacoGuardado.tipoCarne
+                            : 'Sin carne'}">
+                    </span>
+                </li>
 
-        <button type="submit">
-            Guardar taco
-        </button>
+                <li>
+                    <strong>Tortilla:</strong>
+                    <span th:text="${tacoGuardado.tipoTortilla != null
+                            and !tacoGuardado.tipoTortilla.isBlank()
+                            ? tacoGuardado.tipoTortilla
+                            : 'Sin tortilla'}">
+                    </span>
+                </li>
 
-    </form>
+                <li>
+                    <strong>Salsa:</strong>
+                    <span th:text="${tacoGuardado.tipoSalsa != null
+                            and !tacoGuardado.tipoSalsa.isBlank()
+                            ? tacoGuardado.tipoSalsa
+                            : 'Sin salsa'}">
+                    </span>
+                </li>
 
-    <section th:if="${tacoGuardado != null}">
+                <li>
+                    <strong>Precio:</strong>
+                    $<span th:text="${tacoGuardado.precio}"></span>
+                </li>
 
-        <h2>Taco recibido correctamente</h2>
+                <li>
+                    <strong>Cantidad:</strong>
+                    <span th:text="${tacoGuardado.cantidad}"></span>
+                </li>
+            </ul>
 
-        <ul>
-            <li>
-                <strong>ID:</strong>
-                <span th:text="${tacoGuardado.id}"></span>
-            </li>
+        </section>
 
-            <li>
-                <strong>Nombre:</strong>
-                <span th:text="${tacoGuardado.nombre != null
-                        and !tacoGuardado.nombre.isBlank()
-                        ? tacoGuardado.nombre
-                        : 'Sin nombre'}">
-                </span>
-            </li>
+        <p>
+            <a th:href="@{/practica2_info}" class="btn-back">
+                Volver a la lista de tacos
+            </a>
+        </p>
 
-            <li>
-                <strong>Carne:</strong>
-                <span th:text="${tacoGuardado.tipoCarne != null
-                        and !tacoGuardado.tipoCarne.isBlank()
-                        ? tacoGuardado.tipoCarne
-                        : 'Sin carne'}">
-                </span>
-            </li>
-
-            <li>
-                <strong>Tortilla:</strong>
-                <span th:text="${tacoGuardado.tipoTortilla != null
-                        and !tacoGuardado.tipoTortilla.isBlank()
-                        ? tacoGuardado.tipoTortilla
-                        : 'Sin tortilla'}">
-                </span>
-            </li>
-
-            <li>
-                <strong>Salsa:</strong>
-                <span th:text="${tacoGuardado.tipoSalsa != null
-                        and !tacoGuardado.tipoSalsa.isBlank()
-                        ? tacoGuardado.tipoSalsa
-                        : 'Sin salsa'}">
-                </span>
-            </li>
-
-            <li>
-                <strong>Precio:</strong>
-                $<span th:text="${tacoGuardado.precio}"></span>
-            </li>
-
-            <li>
-                <strong>Cantidad:</strong>
-                <span th:text="${tacoGuardado.cantidad}"></span>
-            </li>
-        </ul>
-
-    </section>
-
-    <p>
-        <a th:href="@{/practica2_info}">
-            Volver a la lista de tacos
-        </a>
-    </p>
-
+    </div>
 </body>
 </html>

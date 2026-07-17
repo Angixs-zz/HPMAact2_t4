@@ -10,9 +10,11 @@
     <title th:text="${Titulo}">
         Lista de tacos
     </title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
+    <div class="container">
 
     <header>
         <h1 th:text="${Mensaje}">
@@ -110,7 +112,8 @@
         <button type="submit">Filtrar</button>
     </form>
 
-    <table border="1">
+    <div class="table-container">
+        <table>
 
         <thead>
             <tr>
@@ -169,7 +172,9 @@
 
         </tbody>
 
-    </table>
+        </table>
+    </div>
 
+    </div>
 </body>
 </html>

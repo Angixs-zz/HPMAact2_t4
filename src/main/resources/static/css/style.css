@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Contenedor principal centrado */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos y textos */
+h1,
+h2 {
+    color: #2c3e50;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 10px 0;
+}
+
+/* Enlaces y botones de navegación */
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.btn-back {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #7f8c8d;
+    color: white;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+.btn-back:hover {
+    background-color: #95a5a6;
+    color: white;
+    text-decoration: none;
+}
+
+/* Formularios sencillos */
+form {
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Campos de entrada, selects y botones de envío */
+input,
+select,
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #27ae60;
+}
+
+/* Tablas responsivas */
+.table-container {
+    overflow-x: auto;
+    margin-top: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #e2e8f0;
+    color: #2c3e50;
+}
+
+/* Para pantallas de computadora (más de 600px) */
+@media (min-width: 600px) {
+
+    /* El formulario de búsqueda/filtro se muestra en una sola línea */
+    form:not(.form-vertical) {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    form:not(.form-vertical) label {
+        margin: 0;
+    }
+
+    form:not(.form-vertical) select,
+    form:not(.form-vertical) button {
+        width: auto;
+        margin: 0;
+    }
+}
